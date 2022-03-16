@@ -2,6 +2,8 @@ package main
 
 import (
 	"log"
+
+	"github.com/deeper-x/mygenerics/lib1"
 )
 
 type myNum interface {
@@ -24,22 +26,28 @@ func main() {
 
 	o := newOperator(1.1, 2.2)
 	o.SaySomething()
+
+	// lib1 demo
+	o2 := lib1.NewNumericOp(10, 30)
+	log.Println(o2.GetSum())
+
+	o3 := lib1.NewNumericOp(20.1, 30.1)
+	log.Println(o3.GetSum())
 }
 
-func newOperator[T myNum](x T, y T) operator[T, T] {
-	return operator[T, T]{p1: x, p2: y}
-}
-
-func newOperSimple(x, y int64) operSimple {
-	return operSimple{p1: x, p2: y}
-}
-
+// typical G usage on funcs...
 func sumInts(p1, p2 int) int {
 	return p1 + p2
 }
 
+// ... with numbers manipulation
 func sumNums[T myNum](p1, p2 T) T {
 	return p1 + p2
+}
+
+// struct pattern
+func newOperator[T myNum](x T, y T) operator[T, T] {
+	return operator[T, T]{p1: x, p2: y}
 }
 
 func (o operator[P1, P2]) SaySomething() {
