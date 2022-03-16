@@ -1,29 +1,47 @@
 package main
 
-import "log"
+import (
+	"log"
+)
 
-// MyNumber is a number
-type MyNumber interface {
-	~int | ~float64
+type myNum interface {
+	~int | ~int32 | ~int64 | ~float32 | ~float64
 }
 
-type obj[A, B MyNumber] struct {
-	a A
-	b B
+type operator[P1, P2 myNum] struct {
+	p1 P1
+	p2 P2
+}
+
+type operSimple struct {
+	p1 int64
+	p2 int64
 }
 
 func main() {
-	var x = 2
-	var y = 3.14
+	log.Println(sumNums(10, 20))
+	log.Println(sumNums(29.1, 31.2))
 
-	log.Println(doubleIt(x))
-	log.Println(doubleIt(y))
+	o := newOperator(1.1, 2.2)
+	o.SaySomething()
 }
 
-func doubleIt[T MyNumber](p T) T {
-	return p * 2
+func newOperator[T myNum](x T, y T) operator[T, T] {
+	return operator[T, T]{p1: x, p2: y}
 }
 
-func (p obj[A, B]) SayHello() A {
-	return p.a
+func newOperSimple(x, y int64) operSimple {
+	return operSimple{p1: x, p2: y}
+}
+
+func sumInts(p1, p2 int) int {
+	return p1 + p2
+}
+
+func sumNums[T myNum](p1, p2 T) T {
+	return p1 + p2
+}
+
+func (o operator[P1, P2]) SaySomething() {
+	log.Println(o.p1, o.p2)
 }
