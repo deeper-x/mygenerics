@@ -18,6 +18,10 @@ func NewLog[T Stringer](t T) *Log[T] {
 	}
 }
 
+func (l *Log[T]) AddArchive(v T) {
+	l.Archive = v
+}
+
 func (l *Log[T]) GetEntry() T {
 	return l.Entry
 }

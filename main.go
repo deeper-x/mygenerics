@@ -5,6 +5,7 @@ import (
 
 	"github.com/deeper-x/mygenerics/lib1"
 	"github.com/deeper-x/mygenerics/lib2"
+	"github.com/deeper-x/mygenerics/lib3"
 )
 
 type myNum interface {
@@ -41,6 +42,12 @@ func main() {
 
 	o6 := lib2.NewBook(10, []string{"one", "two"})
 	log.Println(o6)
+
+	o7 := lib3.NewLog([]string{"demo foo"})
+	log.Println(o7.GetArchive())
+
+	toadd := []string{"one", "two"}
+	o7.AddArchive(toadd)
 }
 
 // typical G usage on funcs...
