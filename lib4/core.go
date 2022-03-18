@@ -5,7 +5,7 @@ type Numeric interface {
 	~int | float64
 }
 
-// Text is the textual base interface
+// Text is the textual generic interface
 type Text interface {
 	~string | ~[]string
 }
