@@ -2,7 +2,7 @@ package lib4
 
 // Numeric is the base number interface
 type Numeric interface {
-	~int | float64
+	~int | ~int64 | float64
 }
 
 // Text is the textual generic interface
