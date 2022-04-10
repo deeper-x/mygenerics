@@ -10,6 +10,7 @@ import (
 	"github.com/deeper-x/mygenerics/lib5"
 	"github.com/deeper-x/mygenerics/lib6"
 	"github.com/deeper-x/mygenerics/lib7"
+	"github.com/deeper-x/mygenerics/lib8"
 )
 
 type myNum interface {
@@ -75,6 +76,9 @@ func main() {
 
 	o14 := lib7.NewPerson(20, "John Doe")
 	log.Println(o14.Details())
+
+	o15 := lib8.NewLog(10, []string{"foo", "bar"})
+	log.Println(o15.Details())
 }
 
 // typical G usage on funcs...
