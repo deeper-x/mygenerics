@@ -4,6 +4,8 @@ import (
 	"log"
 
 	"github.com/deeper-x/mygenerics/lib1"
+	"github.com/deeper-x/mygenerics/lib10"
+	"github.com/deeper-x/mygenerics/lib11"
 	"github.com/deeper-x/mygenerics/lib2"
 	"github.com/deeper-x/mygenerics/lib3"
 	"github.com/deeper-x/mygenerics/lib4"
@@ -84,6 +86,11 @@ func main() {
 	o16 := lib9.NewIdentity(10, "foo")
 	log.Println(o16.String())
 
+	o17 := lib10.NewCar(10, []byte("doo"))
+	log.Println(o17.Details())
+
+	o18 := lib11.NewProduct([]byte("doo"), []byte("#1231"), 12.2)
+	log.Println(o18.String())
 }
 
 // typical G usage on funcs...
